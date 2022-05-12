@@ -3,13 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 /*----------------------------------------------------------------------------------------------------------
-|                                       Fourth-Order Runge-Kutta Solution for SIR Model                    |
-|                                       Course:     AM6007                                                 |
-|                                       Lecturer:   Dr Kieran Mulchrone                                    |
-|                                                                                                          |
-|                                       Name:       Mattis Voss                                            |
-|                                       Student #:  121128764                                              |
-|                                       Date:       15/11/2021                                             |
+|                                       Fourth-Order Runge-Kutta Solution for SIR Model                    |                                   |
 ----------------------------------------------------------------------------------------------------------*/
 namespace RungeKutta4
 {
@@ -51,7 +45,7 @@ namespace RungeKutta4
             SIR.Solve(initValuesy, valuesx, timeStep);
 
 
-            // ---------------------------AM6005 CA2 MODEL-------------------------------------------
+            // ---------------------------ALTERNATIVE TEST MODEL-------------------------------------------
 
             // Set parameter values
             double mu = 1;
@@ -63,7 +57,7 @@ namespace RungeKutta4
             F[0] = (t, y, theta) => 2 * y[0] * (1 - y[0] / 2) - y[1] * (y[0] + theta[1]);
             F[1] = (t, y, theta) => y[1] * (theta[0] - y[1] * y[1]) - y[0] * (y[0] * y[1] - theta[1]);
 
-            // New Solver for AM6005 
+            // New Solver
             RKSolver andy = new RKSolver(F, "AM6005.csv");
 
             // Set initial values for y
